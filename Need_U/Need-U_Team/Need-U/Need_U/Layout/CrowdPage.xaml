@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Need_U.CrowdPage"
+             BackgroundColor="White">
+
+  <Grid x:Name="GridOfListView" > 
+
+    <Grid.RowDefinitions> 
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="4*"/> 
+      <RowDefinition Height="75*"/>
+ 
+    </Grid.RowDefinitions>
+
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0" 
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButtonCrowd"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapNavButtonCrowd"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+   
+
+
+    <!--Title Page-->
+    <Label Grid.Row="1"
+           Text="CROWD" TextColor="Blue" FontSize="Medium"/>
+
+    <!--Description Page-->
+
+    <Label Grid.Row="2" TextColor="Black"
+           Text="Here you will see all the Questions of your country!"/>
+
+    <!--ListView-->
+
+    <ListView  CachingStrategy="RecycleElement" RowHeight="120" x:Name="CrowdListViewQuestion" Grid.Row="3" IsPullToRefreshEnabled="True" Refreshing="RefreshList"
+               ItemSelected="OnItemTapped" IsEnabled="True" IsVisible="True"></ListView>
+
+
+    <!--Activity Indicator-->
+
+    <ActivityIndicator Grid.Row="3" x:Name="theActivityIndicator"
+      Color="Blue"></ActivityIndicator>
+
+
+
+  </Grid>
+
+
+</ContentPage>

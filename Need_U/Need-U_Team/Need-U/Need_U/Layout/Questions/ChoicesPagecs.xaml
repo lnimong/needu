@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Need_U.Layout.Questions.ChoicesPagecs"
+                xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+              xmlns:custom="clr-namespace:Need_U; assembly=Need_U"
+              xmlns:local="clr-namespace:Need_U.Objects"
+         
+
+              BackgroundColor="White">
+
+
+
+  <ContentPage x:Name="Page1">
+    
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="84*"/>
+        <RowDefinition Height="8*"/>
+      </Grid.RowDefinitions>
+
+    
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+            Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand" >
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+      
+
+      <Grid Grid.Row="1" x:Name="Grid_Choice1Label">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--<ScrollView>
+          <ScrollView.Content>
+            <Label TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Medium" x:Name="LabelChoice1"
+              Text="This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 "></Label>
+          </ScrollView.Content>
+        </ScrollView>-->
+
+
+
+        
+        
+      </Grid>
+
+
+      <Grid Grid.Row="1" x:Name="Grid_Choice1Image">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <local:PinchToZoomContainer>
+          <local:PinchToZoomContainer.Content>
+            <ffimageloading:CachedImage
+                           x:Name="ImageChoice1"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+                           DownsampleHeight="960"
+                           DownsampleToViewSize="true"
+                           >
+            </ffimageloading:CachedImage>
+          </local:PinchToZoomContainer.Content>
+        </local:PinchToZoomContainer>
+      </Grid>
+
+    <BoxView Color="Silver" Grid.Row="2"></BoxView>
+   
+    
+    </Grid>
+    
+  </ContentPage>
+  
+  
+  
+  <!--Carousel 2-->
+  
+  <ContentPage x:Name="Page2">
+
+
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="84*"/>
+        <RowDefinition Height="8*"/>
+      </Grid.RowDefinitions>
+
+
+      <!--Nav Bar-->
+
+      <BoxView Grid.Row="0"
+               Color="Red" HorizontalOptions="FillAndExpand"/>
+      <Image   Grid.Row="0"
+               Source="backNav" HorizontalOptions="StartAndExpand">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapbackButton"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+
+
+
+      <Image   Grid.Row="0"
+               Source="logoNav.png"
+               HorizontalOptions="CenterAndExpand">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapNavButton"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+
+      </Image>
+
+
+
+      <Grid Grid.Row="1" x:Name="Grid_Choice2Label">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--<ScrollView>
+          <ScrollView.Content>
+            <Label TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Medium" x:Name="LabelChoice2"
+              Text="This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 "></Label>
+          </ScrollView.Content>
+        </ScrollView>-->
+
+      </Grid>
+      
+      
+      
+       
+
+      <Grid Grid.Row="1" x:Name="Grid_Choice2Image" >
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <local:PinchToZoomContainer>
+          <local:PinchToZoomContainer.Content>
+            <ffimageloading:CachedImage
+                           x:Name="ImageChoice2"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+                           DownsampleHeight="960"
+                           DownsampleToViewSize="true"
+                           >
+            </ffimageloading:CachedImage>
+          </local:PinchToZoomContainer.Content>
+        </local:PinchToZoomContainer>
+      </Grid>
+
+
+
+      <BoxView Color="Silver" Grid.Row="2"></BoxView>
+
+
+    </Grid>
+    
+    
+    
+    
+    
+  </ContentPage>
+ 
+  <!--Choice 3-->
+  
+  <ContentPage  x:Name="Page3">
+
+
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="84*"/>
+        <RowDefinition Height="8*"/>
+      </Grid.RowDefinitions>
+
+
+      <!--Nav Bar-->
+
+      <BoxView Grid.Row="0"
+              Color="Red" HorizontalOptions="FillAndExpand"/>
+      <Image   Grid.Row="0"
+               Source="backNav" HorizontalOptions="StartAndExpand">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapbackButton"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+
+
+      <Image   Grid.Row="0"
+               Source="logoNav.png" HorizontalOptions="CenterAndExpand" >
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapNavButton"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+
+      </Image>
+
+
+      <Grid Grid.Row="1" x:Name="Grid_Choice3Label">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--<ScrollView>
+          <ScrollView.Content>
+            <Label TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Medium" x:Name="LabelChoice3"
+              Text="This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 This is the choice 1 "></Label>
+          </ScrollView.Content>
+        </ScrollView>-->
+
+      </Grid>
+
+      <Grid Grid.Row="1" x:Name="Grid_Choice3Image">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <local:PinchToZoomContainer>
+          <local:PinchToZoomContainer.Content>
+            <ffimageloading:CachedImage
+                           x:Name="ImageChoice3"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+                           DownsampleHeight="960"
+                           DownsampleToViewSize="true"
+                           Source = "choice2.jpg">
+            </ffimageloading:CachedImage>
+          </local:PinchToZoomContainer.Content>
+        </local:PinchToZoomContainer>
+      </Grid>
+
+      
+
+      <BoxView Color="Silver" Grid.Row="2"></BoxView>
+
+
+    </Grid>
+    
+    
+    
+    
+    
+  </ContentPage>
+
+  
+  
+  
+</CarouselPage>

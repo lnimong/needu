@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Need_U.Layout.Invitations.FinalInvitation"
+             BackgroundColor="White">
+  <Grid> 
+    <Grid.RowDefinitions> 
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="13*"/>
+      <RowDefinition Height="21*"/>
+      <RowDefinition Height="15*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="7*"/>
+    </Grid.RowDefinitions>
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand"> 
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+
+    <Image   Grid.Row="0"
+            Source="menuNav" HorizontalOptions="EndAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapMenuButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+    <!--Author Title-->
+
+    <Label Grid.Row="1" x:Name="LabelAuthorName"
+           Text="Seb" TextColor="Blue" HorizontalOptions="StartAndExpand"></Label>
+
+    <!--Title-->
+
+    <Label Grid.Row="2" x:Name="LabeltitleQuestion"
+           Text="This is an awesome Invitation !! " TextColor="Blue" HorizontalOptions="StartAndExpand" ></Label>
+
+    <!--Event-->
+
+    <Label Grid.Row="3" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="EventDescription" XAlign="Center" YAlign="Center"
+            Text="This is an invitation for the greatest event ever!! You will not regret it ! "/>
+
+    <!--Like and Dislike-->
+
+    <Grid Grid.Row="4">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="10*"/>
+        <ColumnDefinition Width="40*"/>
+        <ColumnDefinition Width="40*"/>
+        <ColumnDefinition Width="10*"/>
+      </Grid.ColumnDefinitions>
+      
+      <!--Like-->
+
+      <Grid Grid.Column="1"> 
+        <Grid.RowDefinitions>
+          <RowDefinition Height="75*"/>
+          <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Image  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.RowSpan="2" Grid.Row="0"
+            Source="like.png">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapLikeButton"
+                    NumberOfTapsRequired="1" />
+          </Image.GestureRecognizers>
+          
+        </Image>
+
+        <Grid Grid.Column="0" Grid.Row="1" Padding="0,0,0,2" x:Name="GridVoteResultLike" IsEnabled="False" IsVisible="False">
+          <Grid.ColumnDefinitions  >
+            <ColumnDefinition  x:Name="GridResultLike"/>
+            <ColumnDefinition  x:Name="GridLeftSpaceLike"/>
+          </Grid.ColumnDefinitions>
+          <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+          <BoxView Color="Yellow" Grid.Column="0"/>
+          <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+          <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+                 x:Name ="PercentLikeLabel" FontAttributes="Bold" FontSize="Medium"/>
+        </Grid>
+        
+      </Grid>
+
+
+      
+      
+      
+      <!--Dislike-->
+      
+      <Grid Grid.Column="2">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="75*"/>
+          <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Image  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.RowSpan="2" Grid.Row="0"
+            Source="dislike.png">
+
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapDislikeButton"
+                    NumberOfTapsRequired="1" />
+          </Image.GestureRecognizers>
+          
+        </Image>
+
+
+        <Grid Grid.Column="0" Grid.Row="1" Padding="0,0,0,2" x:Name="GridVoteResultDislike"  IsEnabled="False" IsVisible="False">
+          <Grid.ColumnDefinitions  >
+            <ColumnDefinition  x:Name="GridResultDislike"/>
+            <ColumnDefinition  x:Name="GridLeftSpaceDislike"/>
+          </Grid.ColumnDefinitions>
+          <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+          <BoxView Color="Yellow" Grid.Column="0"/>
+          <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+          <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+                 x:Name ="PercentDislikeLabel" FontAttributes="Bold" FontSize="Medium"/>
+        </Grid>
+        
+        
+      </Grid>
+
+    </Grid>
+
+    <!--Go Button-->
+
+    <Image Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+           Source="go.png">
+
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapGoButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+      
+      
+    </Image>
+
+    <!--Address-->
+
+    <Label Grid.Row="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="AddressEvent"
+      Text="78 rue des nuages 75015 Paris" TextColor="Black" />
+
+    <!--Date-->
+
+    <Label Grid.Row="7" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="DateEvent"
+      Text="02/04/2016 - 05/04/2016" TextColor="Blue"  FontAttributes="Bold"/>
+
+    <!--Comment button-->
+
+    <Button Grid.Row="8" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+            Text="Comment" BackgroundColor="Red" Clicked="btnComment_Clicked"/>
+
+
+    <!--Display comments-->
+
+    <Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" x:Name="DisplayComments"  IsEnabled="False" IsVisible="False" BackgroundColor="White" >
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="5*" />
+        <ColumnDefinition Width="90*"/>
+        <ColumnDefinition Width="5*"/>
+      </Grid.ColumnDefinitions>
+
+      
+
+ <Grid Grid.Row="0" Grid.Column="1">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+      
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="90*"/>
+        <ColumnDefinition Width="10*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Row="0" Grid.Column="0" VerticalOptions="EndAndExpand"
+             Text="Comments" TextColor="Blue"/>
+      
+      <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+        Aspect="AspectFit"  Source="close.png">
+
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapCloseButton"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+
+
+
+      </Image>
+</Grid>
+
+      
+<Grid Grid.Row="1" Grid.Column="1">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+   
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="80*"/>
+      <ColumnDefinition Width="20*"/>
+    </Grid.ColumnDefinitions>
+
+  <Image Source="textField.jpg" Aspect="Fill"></Image>
+    <Entry Grid.Row="0" Grid.Column="0" Keyboard="Chat"
+      Placeholder="Comment..." TextColor="Black" x:Name="entryComment"/>
+    
+      <Button Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand"
+      Text="Ok" BackgroundColor="Blue" TextColor="White" Clicked="InsertComment"/> 
+ </Grid>
+ 
+    <ListView Grid.Row="2" Grid.Column="1" x:Name="ListComments" HasUnevenRows="True" RowHeight="50"></ListView> 
+  
+    
+  </Grid>
+  </Grid>
+  
+  
+</ContentPage>

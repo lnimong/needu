@@ -1,0 +1,13 @@
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\obj\Debug\WebAppNeedU.DealTests.csprojResolveAssemblyReference.cache
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\WebAppNeedU.DealTests.dll.config
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\WebAppNeedU.DealTests.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\WebAppNeedU.DealTests.pdb
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\EntityFramework.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\WebAppNeedU.Deal.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\WebAppNeedU.Deal.pdb
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\EntityFramework.xml
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\obj\Debug\WebAppNeedU.DealTests.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.DealTests\obj\Debug\WebAppNeedU.DealTests.pdb

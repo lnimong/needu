@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Need_U.Layout.MyPublicationsPage"
+             BackgroundColor="White">
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="7*"/>
+      <RowDefinition Height="1*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="75*"/>
+    </Grid.RowDefinitions>
+
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+
+
+
+
+    <!--Tabs Questions and Event-->
+
+    <Grid Grid.Row="1" >
+
+      <Grid.ColumnDefinitions BackgroundColor="Red">
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+
+
+      <Label Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"
+        Text="Questions"   TextColor="Blue"  >
+
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapQuestion"
+                  NumberOfTapsRequired="1" />
+        </Label.GestureRecognizers>
+
+      </Label>
+
+      <Label Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"
+             Text="Events" TextColor="Blue" >
+
+
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapEvent"
+                  NumberOfTapsRequired="1" />
+        </Label.GestureRecognizers>
+
+
+      </Label>
+
+    </Grid>
+
+    <!--Box View tab-->
+
+    <Grid Grid.Row="2">
+
+      <Grid.ColumnDefinitions >
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+
+      <BoxView Color="Yellow" Grid.Column="0" x:Name="YellowBoxViewQuestion" IsVisible="True"/>
+      <BoxView Color="Yellow" Grid.Column="1" x:Name="YellowBoxViewEvent" IsVisible="False"/>
+
+
+    </Grid>
+
+
+
+
+
+    <!--Title Page-->
+    <Label Grid.Row="3"
+           Text="My Publications" TextColor="Blue" FontSize="Medium"/>
+
+    <!--Description Page-->
+
+    <Label Grid.Row="4" TextColor ="Black"
+           Text="Here you can see all your publications !"/>
+
+    <!--ListView-->
+
+    <ListView Grid.Row="5" CachingStrategy="RecycleElement" RowHeight="120" x:Name="ListMyPublicationQuestion" ItemSelected="OnItemTap"
+              IsPullToRefreshEnabled="True" Refreshing="RefrechingQuestion"></ListView>
+    
+    <ListView Grid.Row="5" CachingStrategy="RecycleElement" RowHeight="120" x:Name="ListMyPublicationEvent" ItemSelected="OnItemTap"
+              IsPullToRefreshEnabled="True" Refreshing="RefrechingEvent"></ListView>
+
+    <ActivityIndicator Grid.Row="5" x:Name="theActivityIndicator"
+                           Color="Blue"></ActivityIndicator>
+
+  </Grid>
+
+  </ContentPage>

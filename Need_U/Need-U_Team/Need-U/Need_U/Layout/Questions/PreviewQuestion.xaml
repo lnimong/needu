@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Need_U.PreviewQuestion"
+             BackgroundColor="White">
+  
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/> 
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="6*"/>
+      <RowDefinition Height="9*"/>
+      <RowDefinition Height="22*"/>
+      <RowDefinition Height="22*"/>
+      <RowDefinition Height="22*"/>
+      <RowDefinition Height="7*"/>
+    </Grid.RowDefinitions>
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+      <Image.GestureRecognizers> 
+        <TapGestureRecognizer
+                Tapped="onTapNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers> 
+
+    </Image>
+    
+    <!--Name Page-->
+
+    <Label Grid.Row="1"
+           Text="Preview" TextColor="Blue" HorizontalOptions="StartAndExpand"></Label>
+    
+    <!--Title-->
+
+    <Label Grid.Row="2" x:Name="titleQuestionPreview" FontSize="Large" 
+           Text="Title of the question here" TextColor="Blue" HorizontalOptions="StartAndExpand" ></Label>
+    
+    <!--Question-->
+
+    <Label Grid.Row="3" TextColor="Black" HorizontalOptions="StartAndExpand" x:Name="QuestionDescriptionPReview"
+           Text="Is this the question ? Who knows? maybe be yes, maybe not ?"/>
+    
+    <!--Choice1-->
+
+    <Grid Grid.Row="4">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75*"/> 
+        <RowDefinition Height="25*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="13*"/>
+        <ColumnDefinition Width="74*"/>
+        <ColumnDefinition Width="13*"/>
+      </Grid.ColumnDefinitions>
+         
+      <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
+         TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="LabelChoice1"></Label>
+     
+      <ffimageloading:CachedImage 
+             Grid.Column="1" x:Name="ImageChoice1"    Grid.Row="0" Grid.RowSpan="2"
+             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+             DownsampleWidth="200" DownsampleHeight="200"
+             DownsampleToViewSize="true"
+             >
+      </ffimageloading:CachedImage>
+   
+      <!--<Image Grid.Column="1"
+        Source="choice1.jpg" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center" x:Name="ImageChoice1"></Image>-->
+      
+      
+      <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="ThisOneVote1"
+          Source="thisone.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
+
+      <Grid Grid.Column="1" Grid.Row="1" Padding="0,0,0,2" x:Name="GridVote1Result" IsEnabled="False" IsVisible="False">
+        <Grid.ColumnDefinitions  >
+          <ColumnDefinition  x:Name="GridResultVote1"/>
+          <ColumnDefinition  x:Name="GridLeftSpaceVote1"/>
+        </Grid.ColumnDefinitions>
+        <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+        <BoxView Color="Yellow" Grid.Column="0"/>
+        <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+        <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name ="PercentChoice1Label" FontAttributes="Bold" FontSize="Medium"/> 
+      </Grid>
+
+
+    </Grid>
+
+
+    <!--Choice2-->
+
+    <Grid Grid.Row="5">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75*"/>
+        <RowDefinition Height="25*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="13*"/>
+        <ColumnDefinition Width="74*"/>
+        <ColumnDefinition Width="13*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+         TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="LabelChoice2"></Label>
+
+      <ffimageloading:CachedImage
+        Grid.Column="1" x:Name="ImageChoice2"    Grid.Row="0" Grid.RowSpan="2"
+             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+             DownsampleWidth="200" DownsampleHeight="200"
+             DownsampleToViewSize="true" 
+             >
+      </ffimageloading:CachedImage>
+
+      <!--<Image Grid.Column="1"
+        Source="choice1.jpg" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center" x:Name="ImageChoice1"></Image>-->
+
+
+      <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="ThisOneVote2"
+          Source="thisone.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
+
+      <Grid Grid.Column="1" Grid.Row="1" Padding="0,0,0,2" x:Name="GridVote2Result" IsEnabled="False" IsVisible="False">
+        <Grid.ColumnDefinitions  >
+          <ColumnDefinition  x:Name="GridResultVote2"/>
+          <ColumnDefinition  x:Name="GridLeftSpaceVote2"/>
+        </Grid.ColumnDefinitions>
+        <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+        <BoxView Color="Yellow" Grid.Column="0"/>
+        <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+        <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name ="PercentChoice2Label" FontAttributes="Bold" FontSize="Medium"/>
+      </Grid>
+
+
+    </Grid>
+
+    <!--Choice3-->
+
+    <Grid Grid.Row="6">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75*"/>
+        <RowDefinition Height="25*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="13*"/>
+        <ColumnDefinition Width="74*"/>
+        <ColumnDefinition Width="13*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+        TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="LabelChoice3"></Label>
+
+      <ffimageloading:CachedImage
+        Grid.Column="1" x:Name="ImageChoice3"    Grid.Row="0" Grid.RowSpan="2"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+             DownsampleWidth="200" DownsampleHeight="200"
+             DownsampleToViewSize="true"
+             >
+      </ffimageloading:CachedImage>
+
+      <!--<Image Grid.Column="1"
+        Source="choice1.jpg" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center" x:Name="ImageChoice1"></Image>-->
+
+
+      <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="ThisOneVote3"
+          Source="thisone.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
+
+      <Grid Grid.Column="1" Grid.Row="1" Padding="0,0,0,2" x:Name="GridVote3Result" IsEnabled="False" IsVisible="False">
+        <Grid.ColumnDefinitions  >
+          <ColumnDefinition  x:Name="GridResultVote3"/>
+          <ColumnDefinition  x:Name="GridLeftSpaceVote3"/>
+        </Grid.ColumnDefinitions>
+        <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+        <BoxView Color="Yellow" Grid.Column="0"/>
+        <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+        <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name ="PercentChoice3Label" FontAttributes="Bold" FontSize="Medium"/>
+      </Grid>
+
+
+    </Grid> 
+    
+   <!--Send-->
+
+    <Button Grid.Row="7"
+            HorizontalOptions="CenterAndExpand" Text="Send" BackgroundColor="Red" Clicked="SendButon_Clicked"/>
+
+
+    <ActivityIndicator Grid.Row="1" Grid.RowSpan="6"
+                      x:Name="theActivityIndicator"
+                        Color="Blue"></ActivityIndicator>
+    
+  </Grid>
+</ContentPage>

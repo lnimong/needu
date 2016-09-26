@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Need_U.MainPage"
+             BackgroundColor="White">
+
+  <Grid> 
+
+    <Grid.RowDefinitions> 
+      <RowDefinition Height="8*" />
+      <RowDefinition Height="23*"/>
+      <RowDefinition Height="25*"/>
+      <RowDefinition Height="25*"/>
+      <RowDefinition Height="19*"/> 
+    </Grid.RowDefinitions>
+ 
+ 
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+    </Image>
+
+
+
+    <Image   Grid.Row="0"
+                Source="menuNav" HorizontalOptions="EndAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapMenuButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+
+    <!--Ask tool-->
+ 
+    <Image  x:Name="publicationToolButton"
+            Source="askTool.png"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand" >
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapPublicationToolButton"
+                NumberOfTapsRequired="1" /> 
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <!--CROWD-->
+
+
+    <Image x:Name="crowdButton"
+                  Source="crowd.png"
+                  Image.Aspect="AspectFit"
+                  Grid.Row="2"
+                  HorizontalOptions="FillAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapCrowdButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+    <!--LOCAL-->
+
+    <Image 
+            Source="local.png"
+            Image.Aspect="AspectFit"
+            Grid.Row="3"
+            HorizontalOptions="FillAndExpand"
+            x:Name="localButton">
+
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapLocalButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+   
+    </Image>
+
+    <!--MyPublication and bookmark-->
+    <Grid Grid.Row="4">
+
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+
+      <Image x:Name="bookmarkButton"
+              Source="bookmark.png"
+              Grid.Column="0"
+              Aspect="AspectFit"   
+              HorizontalOptions="FillAndExpand">
+
+        <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapBookmarkButton"
+                NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+
+
+      </Image>
+      
+      
+      
+
+      <Image x:Name="myPublicationButton"
+              Source="myPublication.png"
+              Grid.Column="1"
+              Aspect="AspectFit" 
+              HorizontalOptions="FillAndExpand"
+                  >
+
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapMypublicationButton"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+
+
+      </Image>
+
+    </Grid>
+
+
+    <!--Activity Indicator-->
+
+    <ActivityIndicator Grid.Row="1" Grid.RowSpan="4" x:Name="theActivityIndicator"
+      Color="Blue"></ActivityIndicator>
+
+
+    <!--Profile User-->
+
+    <Grid Grid.Row="1" Grid.RowSpan="4"  BackgroundColor="White" x:Name="Grid_ProfileUser" IsVisible="False" IsEnabled="False" >
+      <Grid.RowDefinitions>
+        <RowDefinition Height="5*"/>
+        <RowDefinition Height="31*"/>
+        <RowDefinition Height="9*"/>
+        <RowDefinition Height="9*"/>
+        <RowDefinition Height="9*"/>
+        <RowDefinition Height="9*"/>
+        <RowDefinition Height="20*"/>
+        <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+
+      <BoxView Color="Blue" Grid.Row="0" Grid.RowSpan="4"></BoxView>
+
+      <Image Source="close.png" HorizontalOptions="End" Aspect="AspectFill" VerticalOptions="Center" Grid.Row="0">
+        
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapCloseProfile"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers> 
+      </Image>
+
+      <ffimageloading:CachedImage
+          Grid.RowSpan="2"
+          Grid.Row="1" x:Name="ProfilePicture"    
+          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"          
+          >
+      </ffimageloading:CachedImage>
+     
+
+
+      <Label  Grid.Row="2" x:Name="Label_UserNickName" HorizontalTextAlignment="Center" VerticalOptions="Center" Text="UserNickname" TextColor="Red" 
+              FontSize="Large" BackgroundColor="Yellow" FontAttributes="Bold"></Label>
+
+      <DatePicker Grid.Row="3" x:Name="DatePicker_UserBirthday"  HorizontalOptions="Center"/>
+
+      <Entry  Grid.Row="4" x:Name="Entry_UserCity" HorizontalTextAlignment="Start" VerticalOptions="Center" Text="New-York" TextColor="Black" Keyboard="Chat"></Entry>
+      
+      <!--<Entry IsEnabled="False" Grid.Row="5" x:Name="Entry_UserCountry" HorizontalTextAlignment="Start" VerticalOptions="Center" Text="United States" TextColor="Black"></Entry>-->
+      <Label Grid.Row="5" x:Name="country_Label" TextColor="Black" FontSize="Medium" />
+      <Picker Grid.Row="5" x:Name="Picker_Countries" SelectedIndexChanged="picker_ChangeCountry" ></Picker>
+
+      <!--<Image Grid.Row="6" Source="Female.png" x:Name="Image_UserSex"/>-->
+
+      <Grid Grid.Row="6" x:Name="Grid_UserChooseSex" >
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <BoxView Color="Yellow" x:Name="BoxView_SexChoice"></BoxView>
+
+      <Image      x:Name="SexUser_Male"
+                  Source="male.png"
+                  Grid.Column="0"
+                  HorizontalOptions="Center"
+                  VerticalOptions="CenterAndExpand" >
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapMale"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+
+      <Image      x:Name="SexUser_Female"
+                 Source="Female.png" 
+                 Grid.Column="1"
+                 HorizontalOptions="Center"
+                 VerticalOptions="CenterAndExpand" >
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapFemale"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+
+      </Grid>
+
+      <Button Grid.Row="7" Text="Update" x:Name="button_UpdateProfile" BackgroundColor="Blue" Clicked="Update_Clicked"></Button>
+      
+    </Grid>
+
+  </Grid>  
+
+</ContentPage>

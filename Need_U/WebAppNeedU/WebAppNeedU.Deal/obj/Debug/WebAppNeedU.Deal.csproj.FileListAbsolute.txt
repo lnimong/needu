@@ -1,0 +1,10 @@
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\bin\Debug\WebAppNeedU.Deal.dll.config
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\bin\Debug\WebAppNeedU.Deal.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\bin\Debug\WebAppNeedU.Deal.pdb
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\bin\Debug\EntityFramework.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\bin\Debug\EntityFramework.xml
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\obj\Debug\WebAppNeedU.Deal.csprojResolveAssemblyReference.cache
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\obj\Debug\WebAppNeedU.Deal.dll
+C:\Users\Seb\Documents\Need-u_Source\Need_U\WebAppNeedU\WebAppNeedU.Deal\obj\Debug\WebAppNeedU.Deal.pdb

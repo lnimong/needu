@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Need_U.publicationTool"
+             BackgroundColor="White">
+
+  <Grid>    
+        
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/> 
+      <RowDefinition Height="10*"/>
+      <RowDefinition Height="4*"/> 
+      <RowDefinition Height="9*"/> 
+      <RowDefinition Height="14*"/>
+      <RowDefinition Height="16*"/>
+      <RowDefinition Height="16*"/>
+      <RowDefinition Height="16*"/> 
+      <RowDefinition Height="7*" />
+    </Grid.RowDefinitions>
+  
+  
+  <!--Nav Bar-->
+    
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+      
+    </Image>
+   
+    
+    
+ <!--Tool button-->
+   <Grid Grid.Row="1">
+     <Grid.RowDefinitions>
+       <RowDefinition/>
+     </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition/>
+       <ColumnDefinition/>
+     </Grid.ColumnDefinitions>
+     
+     <Button Grid.Column="0" 
+            Text="ASK" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Red"/>
+     
+     <Button Grid.Column="1" 
+            Text="Invite" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Blue"
+             Clicked="inviteButton_OnClicked"/>
+    </Grid>    
+  
+  <!--name Page-->
+    
+ 
+    
+    <Label Grid.Row="2"
+           Text="ASK" TextColor="Blue"/>
+    
+      
+  <!--title-->
+    
+    <Grid Grid.Row="3">
+     <Grid.RowDefinitions>
+       <RowDefinition/>
+     </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="20*"/>
+       <ColumnDefinition Width="80*"/>
+     </Grid.ColumnDefinitions>
+    
+    <Label Grid.Column="0" HorizontalOptions="Center" VerticalTextAlignment="Center"
+           Text="Title" TextColor="Black"/>
+      <Image Grid.Column="1" Source="textField.jpg" Aspect="Fill"/>
+  
+    <Entry Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TextChanged="TitleTextChange"
+           TextColor="Black" x:Name="EntryTitleQuestion" Keyboard="Chat"/> 
+    
+</Grid>
+  
+  <!--Question-->
+    
+  <Grid Grid.Row="4">
+     <Grid.RowDefinitions>
+       <RowDefinition/>
+     </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="20*"/>
+       <ColumnDefinition Width="80*"/>
+     </Grid.ColumnDefinitions>
+    
+    <Label Grid.Column="0" HorizontalOptions="Center" VerticalTextAlignment="Center"
+           Text="Question" TextColor="Black"/>
+      <Image Grid.Column="1" Source="textField.jpg" Aspect="Fill"/>
+   
+    <Editor Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextChanged="QuestionTexteChanged"
+           TextColor="Black" x:Name="EditorQuestion"  Keyboard="Chat" />
+    
+</Grid>
+     
+          
+   <!--choice 1-->
+    
+ <Grid Grid.Row="5">
+     <Grid.RowDefinitions>
+       <RowDefinition/>
+     </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="20*"/>
+       <ColumnDefinition Width="40*"/>
+       <ColumnDefinition Width="40*"/>
+       
+     </Grid.ColumnDefinitions>
+
+    
+    <Label Grid.Column="0" VerticalTextAlignment="Center"
+           TextColor="Black" Text="Choice1"/>
+    
+    <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"
+           TextColor="Black" Text="Text"/>
+    <Switch Grid.Column="1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" IsToggled="False" Toggled="choice1Switch_toggled" x:Name="choice1Switch"/>
+    
+   <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"
+           TextColor="Black" Text="Image"/>
+    
+    <Image Grid.Column="2" Source="textField.jpg" Aspect="Fill" x:Name="backGroundEntryChoice1"/>
+   
+    <Entry Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Keyboard="Chat"
+           TextColor="Black" x:Name="choice1Entry" TextChanged="TextChangedChoice1"/> 
+
+    <Image Grid.Column="2" Aspect="AspectFit" x:Name="cameraImageChoice1" 
+          Source="camera.jpg" IsVisible="False" >
+     
+     <Image.GestureRecognizers>
+       <TapGestureRecognizer
+               Tapped="onTapCameraChoice1ToolButton"
+               NumberOfTapsRequired="1" />
+     </Image.GestureRecognizers>
+     
+   </Image>
+          
+    
+  </Grid>
+ 
+    <!--choice 2-->
+    
+     <Grid Grid.Row="6">
+     <Grid.RowDefinitions>
+       <RowDefinition/>
+     </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="20*"/>
+       <ColumnDefinition Width="40*"/>
+       <ColumnDefinition Width="40*"/>
+       
+     </Grid.ColumnDefinitions>
+
+    
+    <Label Grid.Column="0" VerticalTextAlignment="Center"
+           TextColor="Black" Text="Choice 2"/>
+    
+    <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"
+           TextColor="Black" Text="Text"/>
+       <Switch Grid.Column="1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" IsToggled="False" Toggled="choice2Switch_toggled" x:Name="choice2Switch"/>
+    <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"
+           TextColor="Black" Text="Image"/>
+    
+    <Image Grid.Column="2" Source="textField.jpg" Aspect="Fill" x:Name="backGroundEntryChoice2"/>
+
+       <Entry Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Keyboard="Chat"
+              TextColor="Black" x:Name="choice2Entry" TextChanged="TextChangedChoice2"/>
+
+       <Image Grid.Column="2" Aspect="AspectFit" x:Name="cameraImageChoice2"
+          Source="camera.jpg" IsVisible="False">
+         <Image.GestureRecognizers>
+           <TapGestureRecognizer
+                   Tapped="onTapCameraChoice2ToolButton"
+                   NumberOfTapsRequired="1" />
+         </Image.GestureRecognizers>
+       
+       </Image>
+    
+  </Grid>
+  
+  <!--choice 3-->
+    
+ <Grid Grid.Row="7">
+     <Grid.RowDefinitions>
+       <RowDefinition/>
+     </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="20*"/>
+       <ColumnDefinition Width="40*"/>
+       <ColumnDefinition Width="40*"/>
+       
+     </Grid.ColumnDefinitions>
+
+   <Label Grid.Column="0" VerticalTextAlignment="Center"
+           TextColor="Black" Text="Choice 3"/>
+
+   <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"
+          TextColor="Black" Text="Text"/>
+   <Switch Grid.Column="1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" IsToggled="False" Toggled="choice3Switch_toggled" x:Name="choice3Switch"/>
+   <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand"
+          TextColor="Black" Text="Image"/>
+
+   <Image Grid.Column="2" Source="textField.jpg" Aspect="Fill" x:Name="backGroundEntryChoice3"/>
+
+   <Entry Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Keyboard="Chat"
+          TextColor="Black" x:Name="choice3Entry" TextChanged="TextChangedChoice3"/>
+
+   <Image Grid.Column="2" Aspect="AspectFit" x:Name="cameraImageChoice3"
+      Source="camera.jpg" IsVisible="False">
+
+     <Image.GestureRecognizers>
+       <TapGestureRecognizer
+               Tapped="onTapCameraChoice3ToolButton" 
+               NumberOfTapsRequired="1" />
+     </Image.GestureRecognizers>
+     
+   </Image>
+
+ </Grid>
+  
+  <!--Preview-->
+    
+  <Button Grid.Row="8" HorizontalOptions="CenterAndExpand" x:Name="PreviewButton"
+          Text="Preview" BackgroundColor="Blue" Clicked="previewButton_OnClick" IsEnabled="False"/>
+
+  </Grid>
+    
+  
+  
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xamarinNativeFacebook="clr-namespace:Need_U;assembly=Need_U"
+             x:Class="Need_U.LoginPage"
+             BackgroundColor="Blue">
+
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40*"/>
+      <RowDefinition Height="35"/> 
+      <RowDefinition Height="17*"/>
+      <RowDefinition Height="8*"/>
+    </Grid.RowDefinitions>
+
+
+  <Image Grid.Row="0"
+    Source="bigLogo.png" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+
+  <Image Grid.Row="1" 
+    Source="mySuperPowerIsYou" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+  
+  <xamarinNativeFacebook:FacebookLoginButton Grid.Row="2"
+    BackgroundColor="Navy"  WidthRequest="240" Text="Facebook Login"  TextColor="White"  HorizontalOptions="Center" VerticalOptions="Center">    
+  </xamarinNativeFacebook:FacebookLoginButton>
+
+  </Grid>
+    
+</ContentPage>

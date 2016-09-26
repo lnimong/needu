@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7a63560e5b949c78c50ad47deec7b75" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="Needuapp_BDModel.Country" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.Event" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.EventLike" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.OptionQuestion" Width="1.5" PointX="7.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.Question" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.Response" Width="1.5" PointX="9.75" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_EventLike_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_OptionQuestion_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_Response_OptionQuestion" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.CommentsEvent" Width="1.5" PointX="7.5" PointY="8.75" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.CommentsQuestion" Width="1.5" PointX="10.5" PointY="9.5" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_CommentsEvent_Event" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_CommentsQuestion_Question" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Needuapp_BDModel.User" Width="1.5" PointX="10.5" PointY="3.125" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_CommentsEvent_User" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_CommentsQuestion_User" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_User_Country" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_Event_User" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_EventLike_User" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_Question_User" />
+        <AssociationConnector Association="Needuapp_BDModel.FK_Response_User" />
+        <AssociationConnector Association="Needuapp_BDModel.FavoriteEvent" />
+        <AssociationConnector Association="Needuapp_BDModel.FavoriteQuestion" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

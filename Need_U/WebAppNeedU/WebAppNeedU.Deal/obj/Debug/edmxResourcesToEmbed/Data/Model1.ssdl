@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Needuapp_BDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="CommentsEvent">
+    <Key>
+      <PropertyRef Name="idEvent" />
+      <PropertyRef Name="idUser" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="idEvent" Type="bigint" Nullable="false" />
+    <Property Name="idUser" Type="bigint" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentsQuestion">
+    <Key>
+      <PropertyRef Name="idQuestion" />
+      <PropertyRef Name="idUser" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="idQuestion" Type="bigint" Nullable="false" />
+    <Property Name="idUser" Type="bigint" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="codeCountry" />
+    </Key>
+    <Property Name="codeCountry" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="idEvent" />
+    </Key>
+    <Property Name="idEvent" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUser" Type="bigint" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="dateStart" Type="datetime" Nullable="false" />
+    <Property Name="dateEnd" Type="datetime" Nullable="false" />
+    <Property Name="placeAddress" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="placeGeolocalizeLatitude" Type="decimal" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="placeGeolocalizeLongitude" Type="decimal" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="activate" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventLike">
+    <Key>
+      <PropertyRef Name="idEvent" />
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idEvent" Type="bigint" Nullable="false" />
+    <Property Name="idUser" Type="bigint" Nullable="false" />
+    <Property Name="like" Type="bit" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FavoriteEvent">
+    <Key>
+      <PropertyRef Name="idEvent" />
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="idEvent" Type="bigint" Nullable="false" />
+    <Property Name="IdUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FavoriteQuestion">
+    <Key>
+      <PropertyRef Name="idQuestion" />
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idQuestion" Type="bigint" Nullable="false" />
+    <Property Name="idUser" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OptionQuestion">
+    <Key>
+      <PropertyRef Name="idOptionQuestion" />
+    </Key>
+    <Property Name="idOptionQuestion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idQuestion" Type="bigint" Nullable="false" />
+    <Property Name="image" Type="image" />
+    <Property Name="textOption" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="idQuestion" />
+    </Key>
+    <Property Name="idQuestion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUser" Type="bigint" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="latitude" Type="numeric" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="longitude" Type="numeric" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="activate" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Response">
+    <Key>
+      <PropertyRef Name="idOptionQuestion" />
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idOptionQuestion" Type="bigint" Nullable="false" />
+    <Property Name="idUser" Type="bigint" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="100" />
+    <Property Name="lastName" Type="varchar" MaxLength="100" />
+    <Property Name="nickName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="birthday" Type="smalldatetime" />
+    <Property Name="job" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="codeCountry" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="sex" Type="bit" Nullable="false" />
+    <Property Name="conexionNumber" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="photoUrl" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <Association Name="FK_CommentsEvent_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="1" />
+    <End Role="CommentsEvent" Type="Self.CommentsEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="idEvent" />
+      </Principal>
+      <Dependent Role="CommentsEvent">
+        <PropertyRef Name="idEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentsEvent_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="CommentsEvent" Type="Self.CommentsEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="CommentsEvent">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentsQuestion_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="CommentsQuestion" Type="Self.CommentsQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="idQuestion" />
+      </Principal>
+      <Dependent Role="CommentsQuestion">
+        <PropertyRef Name="idQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentsQuestion_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="CommentsQuestion" Type="Self.CommentsQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="CommentsQuestion">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Event" Type="Self.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventLike_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="1" />
+    <End Role="EventLike" Type="Self.EventLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="idEvent" />
+      </Principal>
+      <Dependent Role="EventLike">
+        <PropertyRef Name="idEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventLike_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="EventLike" Type="Self.EventLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="EventLike">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorite_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="FavoriteQuestion" Type="Self.FavoriteQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="FavoriteQuestion">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FavoriteEvent_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="1" />
+    <End Role="FavoriteEvent" Type="Self.FavoriteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="idEvent" />
+      </Principal>
+      <Dependent Role="FavoriteEvent">
+        <PropertyRef Name="idEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FavoriteEvent_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="FavoriteEvent" Type="Self.FavoriteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="FavoriteEvent">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FavoriteQuestion_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="FavoriteQuestion" Type="Self.FavoriteQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="idQuestion" />
+      </Principal>
+      <Dependent Role="FavoriteQuestion">
+        <PropertyRef Name="idQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OptionQuestion_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="OptionQuestion" Type="Self.OptionQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="idQuestion" />
+      </Principal>
+      <Dependent Role="OptionQuestion">
+        <PropertyRef Name="idQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Response_OptionQuestion">
+    <End Role="OptionQuestion" Type="Self.OptionQuestion" Multiplicity="1" />
+    <End Role="Response" Type="Self.Response" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OptionQuestion">
+        <PropertyRef Name="idOptionQuestion" />
+      </Principal>
+      <Dependent Role="Response">
+        <PropertyRef Name="idOptionQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Response_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Response" Type="Self.Response" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Response">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="codeCountry" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="codeCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_generate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tableName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="CommentsEvent_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idEvent" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+    <Parameter Name="comment" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="CommentsEvent_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idEvent" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="CommentsQuestion_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+    <Parameter Name="comment" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="CommentsQuestion_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="dn_fn_CalculaDistancia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin" ReturnType="float">
+    <Parameter Name="latitud1" Type="float" Mode="In" />
+    <Parameter Name="longitud1" Type="float" Mode="In" />
+    <Parameter Name="latitud2" Type="float" Mode="In" />
+    <Parameter Name="longitud2" Type="float" Mode="In" />
+  </Function>
+  <Function Name="Event_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+    <Parameter Name="title" Type="varchar" Mode="In" />
+    <Parameter Name="description" Type="varchar" Mode="In" />
+    <Parameter Name="dateStart" Type="datetime" Mode="In" />
+    <Parameter Name="dateEnd" Type="datetime" Mode="In" />
+    <Parameter Name="placeAddress" Type="varchar" Mode="In" />
+    <Parameter Name="placeGeolocalizeLatitude" Type="decimal" Mode="In" />
+    <Parameter Name="placeGeolocalizeLongitude" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="Event_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Event_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idEvent" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="EventById_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idEvent" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="EventByKm_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="latitude" Type="numeric" Mode="In" />
+    <Parameter Name="longitude" Type="numeric" Mode="In" />
+    <Parameter Name="KM" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EventLike_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="IdEvent" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+    <Parameter Name="like" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="EventLike_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idEvent" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="EventLikeByUser_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="IdEvent" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FavoriteEvent_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idEvent" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FavoriteEvent_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idEvent" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FavoriteEvent_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FavoriteQuestion_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FavoriteQuestion_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FavoriteQuestion_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="OptionQuestion_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+    <Parameter Name="image" Type="image" Mode="In" />
+    <Parameter Name="textOption" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Question_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+    <Parameter Name="title" Type="varchar" Mode="In" />
+    <Parameter Name="description" Type="varchar" Mode="In" />
+    <Parameter Name="latitude" Type="numeric" Mode="In" />
+    <Parameter Name="longitude" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="Question_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Question_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="QuestionByCountry_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="QuestionById_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="QuestionBykm_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="latitude" Type="numeric" Mode="In" />
+    <Parameter Name="longitude" Type="numeric" Mode="In" />
+    <Parameter Name="KM" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Response_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idOptionQuestion" Type="bigint" Mode="In" />
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Response_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="ResponseByUser_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idQuestion" Type="bigint" Mode="In" />
+    <Parameter Name="IdUser" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="User_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="firstName" Type="varchar" Mode="In" />
+    <Parameter Name="lastName" Type="varchar" Mode="In" />
+    <Parameter Name="nickName" Type="varchar" Mode="In" />
+    <Parameter Name="birthday" Type="smalldatetime" Mode="In" />
+    <Parameter Name="job" Type="varchar" Mode="In" />
+    <Parameter Name="city" Type="varchar" Mode="In" />
+    <Parameter Name="codeCountry" Type="varchar" Mode="In" />
+    <Parameter Name="sex" Type="bit" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="photoUrl" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UserByEmail_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UserConexiones_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="needuapp_Admin">
+    <Parameter Name="idUser" Type="bigint" Mode="In" />
+  </Function>
+  <EntityContainer Name="Needuapp_BDModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommentsEvent" EntityType="Self.CommentsEvent" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="CommentsQuestion" EntityType="Self.CommentsQuestion" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="EventLike" EntityType="Self.EventLike" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="FavoriteEvent" EntityType="Self.FavoriteEvent" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="FavoriteQuestion" EntityType="Self.FavoriteQuestion" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="OptionQuestion" EntityType="Self.OptionQuestion" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="Response" EntityType="Self.Response" Schema="needuapp_Admin" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="needuapp_Admin" store:Type="Tables" />
+    <AssociationSet Name="FK_CommentsEvent_Event" Association="Self.FK_CommentsEvent_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="CommentsEvent" EntitySet="CommentsEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentsEvent_User" Association="Self.FK_CommentsEvent_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="CommentsEvent" EntitySet="CommentsEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentsQuestion_Question" Association="Self.FK_CommentsQuestion_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="CommentsQuestion" EntitySet="CommentsQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentsQuestion_User" Association="Self.FK_CommentsQuestion_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="CommentsQuestion" EntitySet="CommentsQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_User" Association="Self.FK_Event_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventLike_Event" Association="Self.FK_EventLike_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventLike" EntitySet="EventLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventLike_User" Association="Self.FK_EventLike_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="EventLike" EntitySet="EventLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorite_User" Association="Self.FK_Favorite_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="FavoriteQuestion" EntitySet="FavoriteQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FavoriteEvent_Event" Association="Self.FK_FavoriteEvent_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="FavoriteEvent" EntitySet="FavoriteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FavoriteEvent_User" Association="Self.FK_FavoriteEvent_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="FavoriteEvent" EntitySet="FavoriteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FavoriteQuestion_Question" Association="Self.FK_FavoriteQuestion_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="FavoriteQuestion" EntitySet="FavoriteQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OptionQuestion_Question" Association="Self.FK_OptionQuestion_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="OptionQuestion" EntitySet="OptionQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_User" Association="Self.FK_Question_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Response_OptionQuestion" Association="Self.FK_Response_OptionQuestion">
+      <End Role="OptionQuestion" EntitySet="OptionQuestion" />
+      <End Role="Response" EntitySet="Response" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Response_User" Association="Self.FK_Response_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Response" EntitySet="Response" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Country" Association="Self.FK_User_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

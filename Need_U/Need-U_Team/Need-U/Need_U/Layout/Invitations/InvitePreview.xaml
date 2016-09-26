@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Need_U.InvitePreview"
+             BackgroundColor="White">
+  
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="13*"/>
+      <RowDefinition Height="21*"/>
+      <RowDefinition Height="15*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="7*"/>       
+    </Grid.RowDefinitions>
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0" 
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+    <!--Name Page-->
+
+    <Label Grid.Row="1"
+           Text="Preview" TextColor="Blue" HorizontalOptions="StartAndExpand"></Label>
+
+    <!--Title-->
+
+    <Label Grid.Row="2" x:Name="titleQuestionPreview"
+           Text="This is an awesome Invitation !! " TextColor="Blue" HorizontalOptions="StartAndExpand" ></Label>
+
+    <!--Event-->
+
+    <Label Grid.Row="3" TextColor="Black" HorizontalOptions="StartAndExpand" x:Name="EventDescriptionPreview"
+           Text="This is an invitation for the greatest event ever!! You will not regret it ! "/>
+     
+    <!--Like and Dislike-->
+
+    <Grid Grid.Row="4">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="10*"/>
+        <ColumnDefinition Width="40*"/>
+        <ColumnDefinition Width="40*"/>
+        <ColumnDefinition Width="10*"/>
+      </Grid.ColumnDefinitions>
+
+
+      <Image Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+             Source="like.png"/>
+      
+      <Image Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+             Source="dislike.png"/>
+      
+    </Grid>
+    
+    <!--Go Button-->
+
+    <Image Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+           Source="go.png" />
+    
+    <!--Address-->
+
+    <Label Grid.Row="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="AddressEventPreview"
+      Text="78 rue des nuages 75015 Paris" TextColor="Black" />
+    
+    
+    <!--Send button-->
+
+    <Button Grid.Row="7" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="SenButton_Clicked"
+            Text="Send" BackgroundColor="Blue"/>
+
+
+    <ActivityIndicator Grid.Row="1" Grid.RowSpan="6"
+                       x:Name="theActivityIndicator"
+                         Color="Blue"></ActivityIndicator>
+
+
+  </Grid>
+</ContentPage>

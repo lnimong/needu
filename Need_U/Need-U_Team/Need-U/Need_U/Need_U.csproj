@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED9755DE-977C-4C40-B4B3-607B4BFD4136}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Need_U</RootNamespace>
+    <AssemblyName>Need_U</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="ArrayToImageConverter.cs" />
+    <Compile Include="AwesomeHyperLinkLabel.cs" />
+    <Compile Include="Cell List Personalization\EventsCellBookmark.cs" />
+    <Compile Include="Cell List Personalization\EventsCell.cs" />
+    <Compile Include="Cell List Personalization\QuestionsCellBookmark.cs" />
+    <Compile Include="Cell List Personalization\QuestionsCell.cs" />
+    <Compile Include="Entities\EntityCommentEvent.cs" />
+    <Compile Include="Entities\EntityCommentQuestion.cs" />
+    <Compile Include="Entities\EntityCountry.cs" />
+    <Compile Include="Entities\EntityEvent.cs" />
+    <Compile Include="Entities\EntityEventLike.cs" />
+    <Compile Include="Entities\EntityFavorite.cs" />
+    <Compile Include="Entities\EntityOptionQuestion.cs" />
+    <Compile Include="Entities\EntityQuestion.cs" />
+    <Compile Include="Entities\EntityResponse.cs" />
+    <Compile Include="Entities\EntityUser.cs" />
+    <Compile Include="FacebookLoginButton.cs" />
+    <Compile Include="FacebookUser.cs" />
+    <Compile Include="IconfigSqlite.cs" />
+    <Compile Include="Layout\BookmarkPage.xaml.cs">
+      <DependentUpon>BookmarkPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cell List Personalization\CommentsCellList.cs" />
+    <Compile Include="Cell List Personalization\QuestionsCellLocal.cs" />
+    <Compile Include="Cell List Personalization\EventsCellLocal.cs" />
+    <Compile Include="Fake\FakeChoices.cs" />
+    <Compile Include="Fake\FakeEvents.cs" />
+    <Compile Include="Fake\FakeQuestions.cs" />
+    <Compile Include="Fake\FakeUsers.cs" />
+    <Compile Include="Layout\CrowdPage.xaml.cs">
+      <DependentUpon>CrowdPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Invitations\FinalInvitation.xaml.cs">
+      <DependentUpon>FinalInvitation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\LocalPage.xaml.cs">
+      <DependentUpon>LocalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\MyPublicationsPage.xaml.cs">
+      <DependentUpon>MyPublicationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Questions\ChoicesPagecs.xaml.cs">
+      <DependentUpon>ChoicesPagecs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalDB_User.cs" />
+    <Compile Include="Objects\Comment.cs" />
+    <Compile Include="Objects\Event.cs" />
+    <Compile Include="Layout\Questions\FinalQuestion.xaml.cs">
+      <DependentUpon>FinalQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Invitations\InvitePreview.xaml.cs">
+      <DependentUpon>InvitePreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Invitations\InviteTool.xaml.cs">
+      <DependentUpon>InviteTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\OptionChoice.cs" />
+    <Compile Include="Layout\Questions\PreviewQuestion.xaml.cs">
+      <DependentUpon>PreviewQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\PinchToZoomContainer.cs" />
+    <Compile Include="Objects\PublicationInterface.cs" />
+    <Compile Include="Objects\RandomList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Layout\Questions\publicationTool.xaml.cs">
+      <DependentUpon>publicationTool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\Question.cs" />
+    <Compile Include="Objects\User.cs" />
+    <Compile Include="Service\RestComment.cs" />
+    <Compile Include="Service\RestCountry.cs" />
+    <Compile Include="Service\RestEvent.cs" />
+    <Compile Include="Service\RestFavorite.cs" />
+    <Compile Include="Service\RestQuestion.cs" />
+    <Compile Include="Service\RestResponse.cs" />
+    <Compile Include="Service\RestUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="GettingStarted.Xamarin" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Questions\publicationTool.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Invitations\InviteTool.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.2.1\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.2.1\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.0.7.1\lib\portable-net45+netcore45+wpa81+wp8+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\FFImageLoading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Transformations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.0.7.1\lib\portable-net45+netcore45+wpa81+wp8+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\FFImageLoading.Transformations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GeoCoordinatePortable, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\GeoCoordinate.1.0.0\lib\portable-net45+wp80+win+wpa81\GeoCoordinatePortable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ModernHttpClient, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\References\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.ExternalMaps, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.3.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.ExternalMaps.Abstractions, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.ExternalMaps.3.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.ExternalMaps.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\sqlite-net-pcl.1.1.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SQLitePCL.raw, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCL.raw.0.8.6\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCL.raw.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>..\References\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.0.6\lib\portable-net45+netcore45+wpa81+wp8+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator, Version=3.0.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator.Abstractions, Version=3.0.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.3.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Geolocator.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.3.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.3.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8+wpa81\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TK.CustomMap, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TK.CustomMap.1.4.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\TK.CustomMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.2.0.1.6505\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Core, Version=2.0.5782.12218, Culture=neutral, PublicKeyToken=d65109b36e5040e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Core.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Forms, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Forms.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8\XLabs.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Ioc, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.IoC.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\XLabs.Ioc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Platform, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Platform.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8\XLabs.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Serialization, Version=2.0.5782.15703, Culture=neutral, PublicKeyToken=d65109b36e5040e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Serialization.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Questions\PreviewQuestion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Invitations\InvitePreview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\CrowdPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Questions\FinalQuestion.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\LocalPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Invitations\FinalInvitation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\BookmarkPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\MyPublicationsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Questions\ChoicesPagecs.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

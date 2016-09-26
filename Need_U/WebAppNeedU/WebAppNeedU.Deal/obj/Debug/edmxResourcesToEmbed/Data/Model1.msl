@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Needuapp_BDModelStoreContainer" CdmEntityContainer="Needuapp_BDEntities">
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="codeCountry" ColumnName="codeCountry" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="activate" ColumnName="activate" />
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="placeAddress" ColumnName="placeAddress" />
+          <ScalarProperty Name="placeGeolocalizeLatitude" ColumnName="placeGeolocalizeLatitude" />
+          <ScalarProperty Name="placeGeolocalizeLongitude" ColumnName="placeGeolocalizeLongitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventLike">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.EventLike">
+        <MappingFragment StoreEntitySet="EventLike">
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="like" ColumnName="like" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OptionQuestion">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.OptionQuestion">
+        <MappingFragment StoreEntitySet="OptionQuestion">
+          <ScalarProperty Name="idOptionQuestion" ColumnName="idOptionQuestion" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="textOption" ColumnName="textOption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="activate" ColumnName="activate" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Response">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.Response">
+        <MappingFragment StoreEntitySet="Response">
+          <ScalarProperty Name="idOptionQuestion" ColumnName="idOptionQuestion" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CommentsEvent_Insert" FunctionName="Needuapp_BDModel.Store.CommentsEvent_Insert" />
+    <FunctionImportMapping FunctionImportName="CommentsEvent_Select" FunctionName="Needuapp_BDModel.Store.CommentsEvent_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.CommentsEvent_Select_Result">
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CommentsQuestion_Insert" FunctionName="Needuapp_BDModel.Store.CommentsQuestion_Insert" />
+    <FunctionImportMapping FunctionImportName="CommentsQuestion_Select" FunctionName="Needuapp_BDModel.Store.CommentsQuestion_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.CommentsQuestion_Select_Result">
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Event_Insert" FunctionName="Needuapp_BDModel.Store.Event_Insert" />
+    <FunctionImportMapping FunctionImportName="EventLike_Insert" FunctionName="Needuapp_BDModel.Store.EventLike_Insert" />
+    <FunctionImportMapping FunctionImportName="EventLike_Select" FunctionName="Needuapp_BDModel.Store.EventLike_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.EventLike_Select_Result">
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="NumOfLike" ColumnName="NumOfLike" />
+          <ScalarProperty Name="NumOfDisLike" ColumnName="NumOfDisLike" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FavoriteQuestion_Delete" FunctionName="Needuapp_BDModel.Store.FavoriteQuestion_Delete" />
+    <FunctionImportMapping FunctionImportName="FavoriteQuestion_Insert" FunctionName="Needuapp_BDModel.Store.FavoriteQuestion_Insert" />
+    <FunctionImportMapping FunctionImportName="OptionQuestion_Insert" FunctionName="Needuapp_BDModel.Store.OptionQuestion_Insert" />
+    <FunctionImportMapping FunctionImportName="Question_Insert" FunctionName="Needuapp_BDModel.Store.Question_Insert" />
+    <FunctionImportMapping FunctionImportName="Question_Select" FunctionName="Needuapp_BDModel.Store.Question_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.Question_Select_Result">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="textOption" ColumnName="textOption" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionByCountry_Select" FunctionName="Needuapp_BDModel.Store.QuestionByCountry_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.QuestionByCountry_Select_Result">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="textOption" ColumnName="textOption" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionById_Select" FunctionName="Needuapp_BDModel.Store.QuestionById_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.QuestionById_Select_Result">
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="textOption" ColumnName="textOption" />
+          <ScalarProperty Name="idOptionQuestion" ColumnName="idOptionQuestion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Response_Insert" FunctionName="Needuapp_BDModel.Store.Response_Insert" />
+    <FunctionImportMapping FunctionImportName="Response_Select" FunctionName="Needuapp_BDModel.Store.Response_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.Response_Select_Result">
+          <ScalarProperty Name="idOptionQuestion" ColumnName="idOptionQuestion" />
+          <ScalarProperty Name="percentage" ColumnName="percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FavoriteEvent_Delete" FunctionName="Needuapp_BDModel.Store.FavoriteEvent_Delete" />
+    <FunctionImportMapping FunctionImportName="FavoriteEvent_Insert" FunctionName="Needuapp_BDModel.Store.FavoriteEvent_Insert" />
+    <FunctionImportMapping FunctionImportName="FavoriteEvent_Select" FunctionName="Needuapp_BDModel.Store.FavoriteEvent_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.FavoriteEvent_Select_Result">
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="placeAddress" ColumnName="placeAddress" />
+          <ScalarProperty Name="placeGeolocalizeLatitude" ColumnName="placeGeolocalizeLatitude" />
+          <ScalarProperty Name="placeGeolocalizeLongitude" ColumnName="placeGeolocalizeLongitude" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Event_Select" FunctionName="Needuapp_BDModel.Store.Event_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.Event_Select_Result">
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="placeAddress" ColumnName="placeAddress" />
+          <ScalarProperty Name="placeGeolocalizeLatitude" ColumnName="placeGeolocalizeLatitude" />
+          <ScalarProperty Name="placeGeolocalizeLongitude" ColumnName="placeGeolocalizeLongitude" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FavoriteQuestion_Select" FunctionName="Needuapp_BDModel.Store.FavoriteQuestion_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.FavoriteQuestion_Select_Result">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="textOption" ColumnName="textOption" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EventById_Select" FunctionName="Needuapp_BDModel.Store.EventById_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.EventById_Select_Result">
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="placeAddress" ColumnName="placeAddress" />
+          <ScalarProperty Name="placeGeolocalizeLatitude" ColumnName="placeGeolocalizeLatitude" />
+          <ScalarProperty Name="placeGeolocalizeLongitude" ColumnName="placeGeolocalizeLongitude" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Event_Update" FunctionName="Needuapp_BDModel.Store.Event_Update" />
+    <FunctionImportMapping FunctionImportName="Question_Update" FunctionName="Needuapp_BDModel.Store.Question_Update" />
+    <FunctionImportMapping FunctionImportName="EventByKm_Select" FunctionName="Needuapp_BDModel.Store.EventByKm_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.EventByKm_Select_Result">
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="placeAddress" ColumnName="placeAddress" />
+          <ScalarProperty Name="placeGeolocalizeLatitude" ColumnName="placeGeolocalizeLatitude" />
+          <ScalarProperty Name="placeGeolocalizeLongitude" ColumnName="placeGeolocalizeLongitude" />
+          <ScalarProperty Name="Km" ColumnName="Km" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="QuestionBykm_Select" FunctionName="Needuapp_BDModel.Store.QuestionBykm_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.QuestionBykm_Select_Result">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="textOption" ColumnName="textOption" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="Km" ColumnName="Km" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ResponseByUser_Select" FunctionName="Needuapp_BDModel.Store.ResponseByUser_Select" />
+    <EntitySetMapping Name="CommentsEvent">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.CommentsEvent">
+        <MappingFragment StoreEntitySet="CommentsEvent">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentsQuestion">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.CommentsQuestion">
+        <MappingFragment StoreEntitySet="CommentsQuestion">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EventLikeByUser_Select" FunctionName="Needuapp_BDModel.Store.EventLikeByUser_Select" />
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Needuapp_BDModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Needuapp_BDModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Needuapp_BDModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_generate" FunctionName="Needuapp_BDModel.Store.sp_generate" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Needuapp_BDModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Needuapp_BDModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Needuapp_BDModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Needuapp_BDModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="User_Insert" FunctionName="Needuapp_BDModel.Store.User_Insert" />
+    <FunctionImportMapping FunctionImportName="UserByEmail_Select" FunctionName="Needuapp_BDModel.Store.UserByEmail_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Needuapp_BDModel.UserByEmail_Select_Result">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="codeCountry" ColumnName="codeCountry" />
+          <ScalarProperty Name="nameCountry" ColumnName="nameCountry" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="conexionNumber" ColumnName="conexionNumber" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UserConexiones_Update" FunctionName="Needuapp_BDModel.Store.UserConexiones_Update" />
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="Needuapp_BDModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="photoUrl" ColumnName="photoUrl" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="conexionNumber" ColumnName="conexionNumber" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="codeCountry" ColumnName="codeCountry" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FavoriteEvent" TypeName="Needuapp_BDModel.FavoriteEvent" StoreEntitySet="FavoriteEvent">
+      <EndProperty Name="User">
+        <ScalarProperty Name="idUser" ColumnName="IdUser" />
+      </EndProperty>
+      <EndProperty Name="Event">
+        <ScalarProperty Name="idEvent" ColumnName="idEvent" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FavoriteQuestion" TypeName="Needuapp_BDModel.FavoriteQuestion" StoreEntitySet="FavoriteQuestion">
+      <EndProperty Name="Question">
+        <ScalarProperty Name="idQuestion" ColumnName="idQuestion" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="idUser" ColumnName="idUser" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Needuapp_BDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="codeCountry" />
+    </Key>
+    <Property Name="codeCountry" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Needuapp_BDModel.FK_User_Country" FromRole="Country" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="idEvent" />
+    </Key>
+    <Property Name="idEvent" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUser" Type="Int64" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dateStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dateEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="placeAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="placeGeolocalizeLatitude" Type="Decimal" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="placeGeolocalizeLongitude" Type="Decimal" Precision="20" Scale="15" Nullable="false" />
+    <NavigationProperty Name="EventLike" Relationship="Self.FK_EventLike_Event" FromRole="Event" ToRole="EventLike" />
+    <Property Name="activate" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CommentsEvent" Relationship="Needuapp_BDModel.FK_CommentsEvent_Event" FromRole="Event" ToRole="CommentsEvent" />
+    <NavigationProperty Name="User" Relationship="Needuapp_BDModel.FK_Event_User" FromRole="Event" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Needuapp_BDModel.FavoriteEvent" FromRole="Event" ToRole="User" />
+  </EntityType>
+  <EntityType Name="EventLike">
+    <Key>
+      <PropertyRef Name="idEvent" />
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idEvent" Type="Int64" Nullable="false" />
+    <Property Name="idUser" Type="Int64" Nullable="false" />
+    <Property Name="like" Type="Boolean" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Event" Relationship="Self.FK_EventLike_Event" FromRole="EventLike" ToRole="Event" />
+    <NavigationProperty Name="User" Relationship="Needuapp_BDModel.FK_EventLike_User" FromRole="EventLike" ToRole="User" />
+  </EntityType>
+  <EntityType Name="OptionQuestion">
+    <Key>
+      <PropertyRef Name="idOptionQuestion" />
+    </Key>
+    <Property Name="idOptionQuestion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idQuestion" Type="Int64" Nullable="false" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="textOption" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_OptionQuestion_Question" FromRole="OptionQuestion" ToRole="Question" />
+    <NavigationProperty Name="Response" Relationship="Self.FK_Response_OptionQuestion" FromRole="OptionQuestion" ToRole="Response" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="idQuestion" />
+    </Key>
+    <Property Name="idQuestion" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUser" Type="Int64" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="latitude" Type="Decimal" Precision="20" Scale="15" Nullable="false" />
+    <Property Name="longitude" Type="Decimal" Precision="20" Scale="15" Nullable="false" />
+    <NavigationProperty Name="OptionQuestion" Relationship="Self.FK_OptionQuestion_Question" FromRole="Question" ToRole="OptionQuestion" />
+    <Property Name="activate" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CommentsQuestion" Relationship="Needuapp_BDModel.FK_CommentsQuestion_Question" FromRole="Question" ToRole="CommentsQuestion" />
+    <NavigationProperty Name="User" Relationship="Needuapp_BDModel.FK_Question_User" FromRole="Question" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Needuapp_BDModel.FavoriteQuestion" FromRole="Question" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Response">
+    <Key>
+      <PropertyRef Name="idOptionQuestion" />
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idOptionQuestion" Type="Int64" Nullable="false" />
+    <Property Name="idUser" Type="Int64" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="OptionQuestion" Relationship="Self.FK_Response_OptionQuestion" FromRole="Response" ToRole="OptionQuestion" />
+    <NavigationProperty Name="User" Relationship="Needuapp_BDModel.FK_Response_User" FromRole="Response" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_EventLike_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="1" />
+    <End Role="EventLike" Type="Self.EventLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="idEvent" />
+      </Principal>
+      <Dependent Role="EventLike">
+        <PropertyRef Name="idEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OptionQuestion_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="OptionQuestion" Type="Self.OptionQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="idQuestion" />
+      </Principal>
+      <Dependent Role="OptionQuestion">
+        <PropertyRef Name="idQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Response_OptionQuestion">
+    <End Role="OptionQuestion" Type="Self.OptionQuestion" Multiplicity="1" />
+    <End Role="Response" Type="Self.Response" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OptionQuestion">
+        <PropertyRef Name="idOptionQuestion" />
+      </Principal>
+      <Dependent Role="Response">
+        <PropertyRef Name="idOptionQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Needuapp_BDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="Event" EntityType="Self.Event" />
+    <EntitySet Name="EventLike" EntityType="Self.EventLike" />
+    <EntitySet Name="OptionQuestion" EntityType="Self.OptionQuestion" />
+    <EntitySet Name="Question" EntityType="Self.Question" />
+    <EntitySet Name="Response" EntityType="Self.Response" />
+    <AssociationSet Name="FK_EventLike_Event" Association="Self.FK_EventLike_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventLike" EntitySet="EventLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OptionQuestion_Question" Association="Self.FK_OptionQuestion_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="OptionQuestion" EntitySet="OptionQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Response_OptionQuestion" Association="Self.FK_Response_OptionQuestion">
+      <End Role="OptionQuestion" EntitySet="OptionQuestion" />
+      <End Role="Response" EntitySet="Response" />
+    </AssociationSet>
+    <FunctionImport Name="CommentsEvent_Insert">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+      <Parameter Name="comment" Mode="In" Type="String" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="CommentsEvent_Select" ReturnType="Collection(Needuapp_BDModel.CommentsEvent_Select_Result)">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="CommentsQuestion_Insert">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+      <Parameter Name="comment" Mode="In" Type="String" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="CommentsQuestion_Select" ReturnType="Collection(Needuapp_BDModel.CommentsQuestion_Select_Result)">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Event_Delete">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Event_Insert">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="dateStart" Mode="In" Type="DateTime" />
+      <Parameter Name="dateEnd" Mode="In" Type="DateTime" />
+      <Parameter Name="placeAddress" Mode="In" Type="String" />
+      <Parameter Name="placeGeolocalizeLatitude" Mode="In" Type="Decimal" />
+      <Parameter Name="placeGeolocalizeLongitude" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="EventLike_Insert">
+      <Parameter Name="IdEvent" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+      <Parameter Name="like" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="EventLike_Select" ReturnType="Collection(Needuapp_BDModel.EventLike_Select_Result)">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FavoriteQuestion_Delete">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FavoriteQuestion_Insert">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="OptionQuestion_Insert">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+      <Parameter Name="image" Mode="In" Type="Binary" />
+      <Parameter Name="textOption" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Question_Delete">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Question_Insert" ReturnType="Collection(Int64)">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="longitude" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Question_Select" ReturnType="Collection(Needuapp_BDModel.Question_Select_Result)">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionByCountry_Select" ReturnType="Collection(Needuapp_BDModel.QuestionByCountry_Select_Result)">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionById_Select" ReturnType="Collection(Needuapp_BDModel.QuestionById_Select_Result)">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Response_Insert">
+      <Parameter Name="idOptionQuestion" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Response_Select" ReturnType="Collection(Needuapp_BDModel.Response_Select_Result)">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FavoriteEvent_Delete">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FavoriteEvent_Insert">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FavoriteEvent_Select" ReturnType="Collection(Needuapp_BDModel.FavoriteEvent_Select_Result)">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Event_Select" ReturnType="Collection(Needuapp_BDModel.Event_Select_Result)">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FavoriteQuestion_Select" ReturnType="Collection(Needuapp_BDModel.FavoriteQuestion_Select_Result)">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="EventById_Select" ReturnType="Collection(Needuapp_BDModel.EventById_Select_Result)">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Event_Update">
+      <Parameter Name="idEvent" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Question_Update">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="EventByKm_Select" ReturnType="Collection(Needuapp_BDModel.EventByKm_Select_Result)">
+      <Parameter Name="latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="KM" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="QuestionBykm_Select" ReturnType="Collection(Needuapp_BDModel.QuestionBykm_Select_Result)">
+      <Parameter Name="latitude" Mode="In" Type="Decimal" />
+      <Parameter Name="longitude" Mode="In" Type="Decimal" />
+      <Parameter Name="KM" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ResponseByUser_Select" ReturnType="Collection(Int64)">
+      <Parameter Name="idQuestion" Mode="In" Type="Int64" />
+      <Parameter Name="IdUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="CommentsEvent" EntityType="Needuapp_BDModel.CommentsEvent" />
+    <EntitySet Name="CommentsQuestion" EntityType="Needuapp_BDModel.CommentsQuestion" />
+    <AssociationSet Name="FK_CommentsEvent_Event" Association="Needuapp_BDModel.FK_CommentsEvent_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="CommentsEvent" EntitySet="CommentsEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentsQuestion_Question" Association="Needuapp_BDModel.FK_CommentsQuestion_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="CommentsQuestion" EntitySet="CommentsQuestion" />
+    </AssociationSet>
+    <FunctionImport Name="EventLikeByUser_Select" ReturnType="Collection(Boolean)">
+      <Parameter Name="IdEvent" Mode="In" Type="Int64" />
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="sysdiagrams" EntityType="Needuapp_BDModel.sysdiagrams" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_generate">
+      <Parameter Name="tableName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Needuapp_BDModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Needuapp_BDModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="User_Insert">
+      <Parameter Name="firstName" Mode="In" Type="String" />
+      <Parameter Name="lastName" Mode="In" Type="String" />
+      <Parameter Name="nickName" Mode="In" Type="String" />
+      <Parameter Name="birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="job" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="codeCountry" Mode="In" Type="String" />
+      <Parameter Name="sex" Mode="In" Type="Boolean" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="photoUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UserByEmail_Select" ReturnType="Collection(Needuapp_BDModel.UserByEmail_Select_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UserConexiones_Update">
+      <Parameter Name="idUser" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="User" EntityType="Needuapp_BDModel.User" />
+    <AssociationSet Name="FK_CommentsEvent_User" Association="Needuapp_BDModel.FK_CommentsEvent_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="CommentsEvent" EntitySet="CommentsEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentsQuestion_User" Association="Needuapp_BDModel.FK_CommentsQuestion_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="CommentsQuestion" EntitySet="CommentsQuestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Country" Association="Needuapp_BDModel.FK_User_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_User" Association="Needuapp_BDModel.FK_Event_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventLike_User" Association="Needuapp_BDModel.FK_EventLike_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="EventLike" EntitySet="EventLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_User" Association="Needuapp_BDModel.FK_Question_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Response_User" Association="Needuapp_BDModel.FK_Response_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Response" EntitySet="Response" />
+    </AssociationSet>
+    <AssociationSet Name="FavoriteEvent" Association="Needuapp_BDModel.FavoriteEvent">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FavoriteQuestion" Association="Needuapp_BDModel.FavoriteQuestion">
+      <End Role="User" EntitySet="User" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="CommentsEvent_Select_Result">
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="comment" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CommentsQuestion_Select_Result">
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="comment" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="EventLike_Select_Result">
+    <Property Type="Int64" Name="idEvent" Nullable="false" />
+    <Property Type="Int32" Name="NumOfLike" Nullable="true" />
+    <Property Type="Int32" Name="NumOfDisLike" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Question_Select_Result">
+    <Property Type="Binary" Name="image" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="textOption" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="idQuestion" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="latitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="longitude" Nullable="false" Precision="20" Scale="15" />
+  </ComplexType>
+  <ComplexType Name="QuestionByCountry_Select_Result">
+    <Property Type="Binary" Name="image" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="textOption" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="idQuestion" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="latitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="longitude" Nullable="false" Precision="20" Scale="15" />
+  </ComplexType>
+  <ComplexType Name="QuestionById_Select_Result">
+    <Property Type="Int64" Name="idQuestion" Nullable="false" />
+    <Property Type="Int64" Name="idUser" Nullable="false" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="200" />
+    <Property Type="Decimal" Name="latitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="longitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Binary" Name="image" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="textOption" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="idOptionQuestion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Response_Select_Result">
+    <Property Type="Int64" Name="idOptionQuestion" Nullable="false" />
+    <Property Type="Int32" Name="percentage" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FavoriteEvent_Select_Result">
+    <Property Type="Int64" Name="idEvent" Nullable="false" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="dateStart" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="dateEnd" Nullable="false" Precision="23" />
+    <Property Type="String" Name="placeAddress" Nullable="false" MaxLength="200" />
+    <Property Type="Decimal" Name="placeGeolocalizeLatitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="placeGeolocalizeLongitude" Nullable="false" Precision="20" Scale="15" />
+  </ComplexType>
+  <ComplexType Name="Event_Select_Result">
+    <Property Type="Int64" Name="idEvent" Nullable="false" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="dateStart" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="dateEnd" Nullable="false" Precision="23" />
+    <Property Type="String" Name="placeAddress" Nullable="false" MaxLength="200" />
+    <Property Type="Decimal" Name="placeGeolocalizeLatitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="placeGeolocalizeLongitude" Nullable="false" Precision="20" Scale="15" />
+  </ComplexType>
+  <ComplexType Name="FavoriteQuestion_Select_Result">
+    <Property Type="Binary" Name="image" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="textOption" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="idQuestion" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="latitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="longitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="EventById_Select_Result">
+    <Property Type="Int64" Name="idEvent" Nullable="false" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="dateStart" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="dateEnd" Nullable="false" Precision="23" />
+    <Property Type="String" Name="placeAddress" Nullable="false" MaxLength="200" />
+    <Property Type="Decimal" Name="placeGeolocalizeLatitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="placeGeolocalizeLongitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Int64" Name="idUser" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="EventByKm_Select_Result">
+    <Property Type="Int64" Name="idEvent" Nullable="false" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="dateStart" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="dateEnd" Nullable="false" Precision="23" />
+    <Property Type="String" Name="placeAddress" Nullable="false" MaxLength="200" />
+    <Property Type="Decimal" Name="placeGeolocalizeLatitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="placeGeolocalizeLongitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Double" Name="Km" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="QuestionBykm_Select_Result">
+    <Property Type="Binary" Name="image" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="textOption" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="idQuestion" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="latitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Decimal" Name="longitude" Nullable="false" Precision="20" Scale="15" />
+    <Property Type="Double" Name="Km" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CommentsEvent">
+    <Key>
+      <PropertyRef Name="idEvent" />
+      <PropertyRef Name="idUser" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="idEvent" Type="Int64" Nullable="false" />
+    <Property Name="idUser" Type="Int64" Nullable="false" />
+    <Property Name="comment" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Event" Relationship="Needuapp_BDModel.FK_CommentsEvent_Event" FromRole="CommentsEvent" ToRole="Event" />
+    <NavigationProperty Name="User" Relationship="Needuapp_BDModel.FK_CommentsEvent_User" FromRole="CommentsEvent" ToRole="User" />
+  </EntityType>
+  <EntityType Name="CommentsQuestion">
+    <Key>
+      <PropertyRef Name="idQuestion" />
+      <PropertyRef Name="idUser" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="idQuestion" Type="Int64" Nullable="false" />
+    <Property Name="idUser" Type="Int64" Nullable="false" />
+    <Property Name="comment" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Question" Relationship="Needuapp_BDModel.FK_CommentsQuestion_Question" FromRole="CommentsQuestion" ToRole="Question" />
+    <NavigationProperty Name="User" Relationship="Needuapp_BDModel.FK_CommentsQuestion_User" FromRole="CommentsQuestion" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_CommentsEvent_Event">
+    <End Type="Needuapp_BDModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.CommentsEvent" Role="CommentsEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="idEvent" />
+      </Principal>
+      <Dependent Role="CommentsEvent">
+        <PropertyRef Name="idEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentsQuestion_Question">
+    <End Type="Needuapp_BDModel.Question" Role="Question" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.CommentsQuestion" Role="CommentsQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="idQuestion" />
+      </Principal>
+      <Dependent Role="CommentsQuestion">
+        <PropertyRef Name="idQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UserByEmail_Select_Result">
+    <Property Type="Int64" Name="idUser" Nullable="false" />
+    <Property Type="String" Name="firstName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nickName" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="birthday" Nullable="true" Precision="16" />
+    <Property Type="String" Name="job" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="codeCountry" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="nameCountry" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="sex" Nullable="false" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="conexionNumber" Nullable="false" />
+    <Property Type="String" Name="lastName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nickName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="0" />
+    <Property Name="job" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codeCountry" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="sex" Type="Boolean" Nullable="false" />
+    <Property Name="conexionNumber" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CommentsEvent" Relationship="Needuapp_BDModel.FK_CommentsEvent_User" FromRole="User" ToRole="CommentsEvent" />
+    <NavigationProperty Name="CommentsQuestion" Relationship="Needuapp_BDModel.FK_CommentsQuestion_User" FromRole="User" ToRole="CommentsQuestion" />
+    <NavigationProperty Name="Country" Relationship="Needuapp_BDModel.FK_User_Country" FromRole="User" ToRole="Country" />
+    <NavigationProperty Name="Event" Relationship="Needuapp_BDModel.FK_Event_User" FromRole="User" ToRole="Event" />
+    <NavigationProperty Name="EventLike" Relationship="Needuapp_BDModel.FK_EventLike_User" FromRole="User" ToRole="EventLike" />
+    <NavigationProperty Name="Question" Relationship="Needuapp_BDModel.FK_Question_User" FromRole="User" ToRole="Question" />
+    <NavigationProperty Name="Response" Relationship="Needuapp_BDModel.FK_Response_User" FromRole="User" ToRole="Response" />
+    <NavigationProperty Name="Event1" Relationship="Needuapp_BDModel.FavoriteEvent" FromRole="User" ToRole="Event" />
+    <NavigationProperty Name="Question1" Relationship="Needuapp_BDModel.FavoriteQuestion" FromRole="User" ToRole="Question" />
+    <Property Name="photoUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_CommentsEvent_User">
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.CommentsEvent" Role="CommentsEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="CommentsEvent">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentsQuestion_User">
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.CommentsQuestion" Role="CommentsQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="CommentsQuestion">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Country">
+    <End Type="Needuapp_BDModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="codeCountry" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="codeCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_User">
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.Event" Role="Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventLike_User">
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.EventLike" Role="EventLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="EventLike">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_User">
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.Question" Role="Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Response_User">
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="1" />
+    <End Type="Needuapp_BDModel.Response" Role="Response" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Response">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FavoriteEvent">
+    <End Type="Needuapp_BDModel.Event" Role="Event" Multiplicity="*" />
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="*" />
+  </Association>
+  <Association Name="FavoriteQuestion">
+    <End Type="Needuapp_BDModel.User" Role="User" Multiplicity="*" />
+    <End Type="Needuapp_BDModel.Question" Role="Question" Multiplicity="*" />
+  </Association>
+</Schema>

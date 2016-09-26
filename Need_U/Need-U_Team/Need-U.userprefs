@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="Need-U\Need_U.Droid\Need_U.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.031bdf6b08e6ccf4" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Need-U\Need_U.Droid\Resources\Resource.Designer.cs">
+    <Files>
+      <File FileName="Need-U\Need_U.Droid\Resources\Resource.Designer.cs" Line="3357" Column="102" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:tkmap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+             x:Class="Need_U.InviteTool"
+             BackgroundColor="White">
+
+  <!--xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"-->
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/> 
+      <RowDefinition Height="10*"/>  
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="9*"/>
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="10*"/>
+      <RowDefinition Height="34*"/>
+      <RowDefinition Height="10*"/>
+      <RowDefinition Height="7*"/>
+    </Grid.RowDefinitions>
+
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapBackNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+    
+    
+    
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapLogoNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>      
+    </Image>
+
+
+
+    <!--Tool button-->
+    <Grid Grid.Row="1">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+
+      <Button Grid.Column="0"
+             Text="ASK" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Blue"
+              Clicked="Ask_OnClicked"/>
+      
+      
+      
+      <Button Grid.Column="1"
+             Text="Invite" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Red"/>
+    </Grid>
+
+    <!--name Page-->
+
+
+
+    <Label Grid.Row="2"
+           Text="Invite" TextColor="Blue"/>
+
+
+    <!--Title-->
+
+    <Grid Grid.Row="3">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20*"/>
+        <ColumnDefinition Width="80*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="0" HorizontalOptions="Center" VerticalTextAlignment="Center"
+             Text="Title" TextColor="Black"/>
+      
+      <Image Grid.Column="1" Source="textField.jpg" Aspect="Fill"/>
+
+      <Entry Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" x:Name="EntryTitleInvitation"
+             TextChanged="TitleEvent_Change" Keyboard="Chat"
+             TextColor="Black" />
+
+    </Grid>
+
+    <!--Date-->
+
+    <Grid Grid.Row="4">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20*"/>
+        <ColumnDefinition Width="37*"/>
+        <ColumnDefinition Width="5*"/>
+        <ColumnDefinition Width="37*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="0" HorizontalOptions="Center" VerticalTextAlignment="Center"
+             Text="Date From" TextColor="Black"/>
+      
+      
+
+      <BoxView Grid.Column="1" Color="Blue"/>
+      
+      <DatePicker Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" x:Name="DatePickerStartInvitation" DateSelected="StartEvent_DateSelected"/>
+      
+      <Label Grid.Column="2" HorizontalOptions="Center" VerticalTextAlignment="Center"
+                Text="To" TextColor="Black"/>
+      <BoxView Grid.Column="3" Color="Blue"/>
+      <DatePicker Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" x:Name="DatePickerEndInvitation" DateSelected="EndEvent_DateSelected" />
+
+    </Grid>
+
+    <!--Place-->
+
+    <Grid Grid.Row="5">
+      <Grid.RowDefinitions>
+        <RowDefinition/> 
+      </Grid.RowDefinitions>  
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20*"/>
+        <ColumnDefinition Width="80*"/> 
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="0" HorizontalOptions="Center" VerticalTextAlignment="Center"
+             Text="Address" TextColor="Black"/>
+     
+      <Image Grid.Column="1" Source="textField.jpg" Aspect="Fill"/>
+      <Editor Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" 
+              TextChanged="EditorAddressEvent_TextChanged"
+             x:Name="EditorAddressEnvent"
+             TextColor="Black" />
+
+    </Grid>
+
+    <!--Map Precise Address-->
+
+    <Grid Grid.Row="6" x:Name="GridMap" IsVisible="True">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20*"/>
+        <ColumnDefinition Width="80*"/>
+      
+      </Grid.ColumnDefinitions>
+
+
+      <Label Grid.Column="0" HorizontalOptions="Center" VerticalTextAlignment="Center" Grid.Row="0"
+              Text="Map" TextColor="Black"/>
+
+      <BoxView Grid.Column="1" Color="Purple"></BoxView>
+
+      <Image Source="CheckButtonOff.png" VerticalOptions="Start" HorizontalOptions="Center" x:Name="MapButton" Grid.Column="0" Grid.Row="1">
+
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapMapButton"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+        
+      </Image>
+
+
+
+    </Grid>
+
+    <!--Desription-->
+
+    <Grid Grid.Row="7">  
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20*"/>
+        <ColumnDefinition Width="80*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="0" HorizontalOptions="Center" VerticalTextAlignment="Center"
+             Text="Event" TextColor="Black"/>
+      <Image Grid.Column="1" Source="textField.jpg" Aspect="Fill"/>
+
+      <Editor Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" 
+              TextChanged="EditorDescriptionEvent_ChangedText" Keyboard="Chat"
+             x:Name="EditorDescriptionEnvent"
+             TextColor="Black" />
+
+    </Grid>
+
+    <!--Preview-->
+
+    <Button Grid.Row="8" HorizontalOptions="CenterAndExpand" Clicked="previewButton_Cliked"
+          Text="Preview" BackgroundColor="Blue" x:Name="PreviewButton" IsEnabled="False"/>
+
+ 
+
+  </Grid>
+  
+  
+</ContentPage>

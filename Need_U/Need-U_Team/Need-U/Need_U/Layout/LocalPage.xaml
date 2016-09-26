@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Need_U.LocalPage"
+                   BackgroundColor="White">
+     
+ <!--Master (Menu)-->  
+  
+  <MasterDetailPage.Master IsPresented="false">
+    <ContentPage Title="Menu" BackgroundColor="White">
+      <Grid>
+        <Grid.RowDefinitions> 
+          <RowDefinition Height="33*"/>  
+          <RowDefinition Height="34*"/>
+          <RowDefinition Height="33*"/> 
+        </Grid.RowDefinitions>
+
+        <Label TextColor="Black" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               Text="How far do you want to see the publications ?"
+        />
+
+        <Label Grid.Row="1" FontSize="Large" FontAttributes="Bold" TextColor="Blue" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               BindingContext="{x:Reference Name = SliderQuestionkm}"           Text="{Binding Path=Value,  StringFormat='{0:F0} Km'}}" x:Name="LabelQuestionkm"
+        />
+
+        <Label Grid.Row="1" FontSize="Large" FontAttributes="Bold" TextColor="Blue" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+               BindingContext="{x:Reference Name = SliderEventKm}"   Text="{Binding Path=Value,  StringFormat='{0:F0} Km'}}" x:Name="LabelEventkm"
+        />
+
+        <Slider Grid.Row="2"  x:Name="SliderQuestionkm" ValueChanged="SliderQuestionValueChange"
+          Maximum="32" Minimum="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
+        
+        <Slider Grid.Row="2"  x:Name="SliderEventKm" ValueChanged="SliderEventValueChange"
+          Maximum="32" Minimum="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
+
+
+      </Grid>
+    </ContentPage> 
+  </MasterDetailPage.Master> 
+  
+  
+  <!--Detail (Content)-->
+
+
+  <MasterDetailPage.Detail>
+    <ContentPage BackgroundColor="White">
+
+    <Grid x:Name="GridOfListView">
+
+      <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="7*"/>
+      <RowDefinition Height="1*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="75*"/>
+
+      </Grid.RowDefinitions>
+
+
+
+      <!--Nav Bar-->
+
+        <BoxView Grid.Row="0"
+                 Color="Red" HorizontalOptions="FillAndExpand"/>
+        <Image   Grid.Row="0"
+                 Source="backNav" HorizontalOptions="StartAndExpand">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapbackButtonCrowd"
+                    NumberOfTapsRequired="1" />
+          </Image.GestureRecognizers>
+        </Image>
+
+
+        <Image   Grid.Row="0"
+                 Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapNavButtonCrowd"
+                    NumberOfTapsRequired="1" />
+          </Image.GestureRecognizers>
+
+        </Image>
+
+  
+        <Image   Grid.Row="0"
+                 Source="menuNav" HorizontalOptions="EndAndExpand">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapMenuButton"
+                    NumberOfTapsRequired="1" /> 
+          </Image.GestureRecognizers>
+
+        </Image>
+
+
+      <!--Tabs Questions and Event-->
+
+      <Grid Grid.Row="1" >
+
+        <Grid.ColumnDefinitions BackgroundColor="Red">
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label Grid.Column="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"
+          Text="Questions"   TextColor="Blue"  >
+
+          <Label.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapQuestion"
+                    NumberOfTapsRequired="1" />
+          </Label.GestureRecognizers>
+
+        </Label>
+
+        <Label Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"
+               Text="Events" TextColor="Blue" >
+
+
+          <Label.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapEvent"
+                    NumberOfTapsRequired="1" />
+          </Label.GestureRecognizers>
+
+
+        </Label>
+
+      </Grid>
+
+      <!--Box View tab-->
+
+      <Grid Grid.Row="2">
+
+        <Grid.ColumnDefinitions >
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <BoxView Color="Yellow" Grid.Column="0" x:Name="YellowBoxViewQuestion" IsVisible="True"/>
+        <BoxView Color="Yellow" Grid.Column="1" x:Name="YellowBoxViewEvent" IsVisible="False"/>
+
+
+      </Grid>
+
+
+      <!--Title Page-->
+      <Label Grid.Row="3"
+             Text="Local" TextColor="Blue" FontSize="Medium"/>
+
+      <!--Description Page-->
+
+      <Label Grid.Row="4" TextColor="Black"
+             Text="Here you will see all the publications nearby you!"/> 
+
+      <!--ListView-->
+
+      <ListView  CachingStrategy="RecycleElement" RowHeight="120" x:Name="ListLocalQuestion" Grid.Row="5"  ItemSelected="OnItemTappedQuestion"
+                 IsPullToRefreshEnabled="True" Refreshing="RefrechingQuestion"></ListView>
+      <ListView  CachingStrategy="RecycleElement" RowHeight="120" x:Name="ListLocalEvent" Grid.Row="5"  ItemSelected="OnItemTappedEvent"
+                 IsPullToRefreshEnabled="True" Refreshing="RefrechingEvent"></ListView>
+
+      <ActivityIndicator Grid.Row="5" x:Name="theActivityIndicator"
+      Color="Blue"></ActivityIndicator>
+   
+
+      </Grid>
+    </ContentPage>
+  </MasterDetailPage.Detail>
+
+  
+</MasterDetailPage >

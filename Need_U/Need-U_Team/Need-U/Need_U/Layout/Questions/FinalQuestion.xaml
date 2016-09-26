@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="Need_U.FinalQuestion"
+             xmlns:custom="clr-namespace:Need_U"
+             BackgroundColor="White">
+ 
+  <Grid x:Name="MainGrid">
+    <Grid.RowDefinitions> 
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="4*"/>
+      <RowDefinition Height="6*"/> 
+      <RowDefinition Height="9*"/>
+      <RowDefinition Height="22*"/>
+      <RowDefinition Height="22*"/>
+      <RowDefinition Height="22*"/>
+      <RowDefinition Height="7*"/>
+    </Grid.RowDefinitions> 
+
+
+    <!--Nav Bar-->
+
+    <BoxView Grid.Row="0"
+             Color="Red" HorizontalOptions="FillAndExpand"/>
+    <Image   Grid.Row="0"
+             Source="backNav" HorizontalOptions="StartAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapbackButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+    </Image>
+
+
+    <Image   Grid.Row="0"
+             Source="logoNav.png" HorizontalOptions="CenterAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapNavButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+    <Image   Grid.Row="0"
+                Source="menuNav" HorizontalOptions="EndAndExpand">
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapMenuButton"
+                NumberOfTapsRequired="1" />
+      </Image.GestureRecognizers>
+
+    </Image>
+
+
+    <!--Name Page--> 
+
+    <Label Grid.Row="1" x:Name="AuthorQuestion" 
+           Text="User Name" TextColor="Blue" HorizontalOptions="StartAndExpand"></Label>
+
+    <!--Title-->
+
+    <Label Grid.Row="2" x:Name="titleQuestion" FontSize="Large" 
+           Text="Title of the question" TextColor="Blue" HorizontalOptions="StartAndExpand" ></Label>
+
+    <!--Question-->
+    <!--<Label Grid.Row="3" TextColor="Black" HorizontalOptions="StartAndExpand" x:Name="QuestionDescription" >"</Label>-->
+    
+    <!--<custom:AwesomeHyperLinkLabel Grid.Row="3" TextColor="Red" HorizontalOptions="StartAndExpand" x:Name="QuestionDescription"></custom:AwesomeHyperLinkLabel>-->
+
+    <!--Choice1-->
+
+    <Grid Grid.Row="4"> 
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75*"/>
+        <RowDefinition Height="25*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="13*"/>
+        <ColumnDefinition Width="74*"/>
+        <ColumnDefinition Width="13*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+        Text="Choice 1" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="LabelChoice1"></Label>
+
+      <ffimageloading:CachedImage
+        Grid.Column="1" x:Name="ImageChoice1"    Grid.Row="0" Grid.RowSpan="2"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+             DownsampleWidth="960" DownsampleHeight="960"
+             DownsampleToViewSize="true"
+             >
+        
+        
+      </ffimageloading:CachedImage>
+
+      <BoxView Color="Transparent" Grid.Column="1" >
+        <BoxView.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapChoice1"
+                  NumberOfTapsRequired="1" />
+        </BoxView.GestureRecognizers>
+      </BoxView>
+              
+     
+
+      <!--<Image Grid.Column="1"
+        Source="choice1.jpg" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center" x:Name="ImageChoice1"></Image>-->
+
+
+      <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="ThisOneVote1"
+          Source="thisone.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapThisOne1"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+        
+      </Image>
+
+      <Grid Grid.Column="1" Grid.Row="1"  x:Name="GridVote1Result" IsEnabled="False" IsVisible="False" Padding="0,0,0,2">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition  x:Name="GridResultVote1"/>
+          <ColumnDefinition  x:Name="GridLeftSpaceVote1"/>
+        </Grid.ColumnDefinitions>
+        <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+        <BoxView Color="Yellow" Grid.Column="0"/>
+        <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+        <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name ="PercentChoice1Label" FontAttributes="Bold" FontSize="Medium"/>
+      </Grid>
+
+
+    </Grid>
+
+
+    <!--Choice2-->
+
+    <Grid Grid.Row="5">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75*"/>
+        <RowDefinition Height="25*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="13*"/>
+        <ColumnDefinition Width="74*"/>
+        <ColumnDefinition Width="13*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+        Text="Choice 2" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="LabelChoice2"></Label>
+
+      <ffimageloading:CachedImage
+        Grid.Column="1" x:Name="ImageChoice2"    Grid.Row="0" Grid.RowSpan="2"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+             DownsampleWidth="960" DownsampleHeight="960"
+             DownsampleToViewSize="true"
+             >
+      </ffimageloading:CachedImage>
+
+      <BoxView Color="Transparent" Grid.Column="1" >
+        <BoxView.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapChoice2"
+                  NumberOfTapsRequired="1" />
+        </BoxView.GestureRecognizers>
+      </BoxView>
+
+      <!--<Image Grid.Column="1"
+        Source="choice1.jpg" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center" x:Name="ImageChoice1"></Image>-->
+
+
+      <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="ThisOneVote2"
+          Source="thisone.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapThisOne2"
+                  NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+
+
+      </Image>
+
+      <Grid Grid.Column="1" Grid.Row="1" x:Name="GridVote2Result" IsEnabled="False" IsVisible="False" Padding="0,0,0,2">
+        <Grid.ColumnDefinitions  >
+          <ColumnDefinition  x:Name="GridResultVote2"/>
+          <ColumnDefinition  x:Name="GridLeftSpaceVote2"/>
+        </Grid.ColumnDefinitions>
+        <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+        <BoxView Color="Yellow" Grid.Column="0"/>
+        <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+        <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name ="PercentChoice2Label" FontAttributes="Bold" FontSize="Medium"/>
+      </Grid>
+
+
+    </Grid>
+
+    <!--Choice3-->
+
+    <Grid Grid.Row="6">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75*"/>
+        <RowDefinition Height="25*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="13*"/>
+        <ColumnDefinition Width="74*"/>
+        <ColumnDefinition Width="13*"/>
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+        Text="Choice 3" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:Name="LabelChoice3"></Label>
+
+      <ffimageloading:CachedImage
+        Grid.Column="1" x:Name="ImageChoice3"    Grid.Row="0" Grid.RowSpan="2"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"
+             DownsampleWidth="960" DownsampleHeight="960"
+             DownsampleToViewSize="true"
+             >
+      </ffimageloading:CachedImage>
+
+      <BoxView Color="Transparent" Grid.Column="1" >
+        <BoxView.GestureRecognizers>
+          <TapGestureRecognizer
+                  Tapped="onTapChoice3"
+                  NumberOfTapsRequired="1" />
+        </BoxView.GestureRecognizers>
+      </BoxView>
+
+      <!--<Image Grid.Column="1"
+        Source="choice1.jpg" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center" x:Name="ImageChoice1"></Image>-->
+
+
+      <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="ThisOneVote3"
+          Source="thisone.png" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+
+        <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="onTapThisOne3"
+                NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+
+      </Image>
+
+      <Grid Grid.Column="1" Grid.Row="1" Padding="0,0,0,2" x:Name="GridVote3Result" IsEnabled="False" IsVisible="False">
+        <Grid.ColumnDefinitions  >
+          <ColumnDefinition  x:Name="GridResultVote3"/>
+          <ColumnDefinition  x:Name="GridLeftSpaceVote3"/>
+        </Grid.ColumnDefinitions>
+        <BoxView Color="Gray" Grid.Column="0" Grid.ColumnSpan="2" Opacity="0.8"></BoxView>
+        <BoxView Color="Yellow" Grid.Column="0"/>
+        <Image Source="frame1.png" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="Fill"></Image>
+        <Label Text="80%" TextColor="Red" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2"
+               x:Name ="PercentChoice3Label" FontAttributes="Bold" FontSize="Medium"/>
+      </Grid>
+
+
+    </Grid>
+
+
+    <!--Comment-->
+
+    <Button Grid.Row="7"
+            HorizontalOptions="CenterAndExpand" Text="Comment" BackgroundColor="Red" Clicked="btnComment_Clicked"/>
+
+
+    <!--Display comments-->
+
+    <Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" x:Name="DisplayComments"  IsEnabled="False" IsVisible="False" BackgroundColor="White" >
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="5*" />
+        <ColumnDefinition Width="90*"/>
+        <ColumnDefinition Width="5*"/>
+      </Grid.ColumnDefinitions>
+
+
+
+      <Grid Grid.Row="0" Grid.Column="1">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="90*"/>
+          <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="EndAndExpand"
+               Text="Comments" TextColor="Blue"/>
+
+        <Image Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"
+          Aspect="AspectFit"  Source="close.png">
+
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer
+                    Tapped="onTapCloseButton"
+                    NumberOfTapsRequired="1" />
+          </Image.GestureRecognizers>
+
+
+
+        </Image>
+      </Grid>
+
+
+      <Grid Grid.Row="1" Grid.Column="1">
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="80*"/>
+          <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="textField.jpg" Aspect="Fill"></Image>
+        <Entry Grid.Row="0" Grid.Column="0" Keyboard="Chat"
+          Placeholder="Comment..." TextColor="Black" x:Name="entryComment"/>
+
+        <Button Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand"
+        Text="Ok" BackgroundColor="Blue" TextColor="White" Clicked="InsertComment" />
+      </Grid>
+
+      <ListView Grid.Row="2" Grid.Column="1" x:Name="ListComments" HasUnevenRows="True" RowHeight="50"></ListView>
+
+
+    </Grid>
+    
+
+  </Grid>
+
+
+</ContentPage>
